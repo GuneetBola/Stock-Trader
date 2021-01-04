@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h2>History</h2>
+    <p>Below lies your current history of buying and selling stocks.</p>
+    <table class="table">
+            <tr>
+                <th>Date of Transaction (GMT)</th>
+                <th>Stock Symbol</th>
+                <th>Number of Shares</th>
+                <th>Share Price</th>
+            </tr>
+            {% for stock in transactions %}
+                <tr>
+                    <td>{{ stock['date'] }}</td>
+                    <td>{{ stock['symbol'] }}</td>
+                    <td>{{ stock['numofshares'] }}</td>
+                    <td>{{ usd(stock['valueofshares']) }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </table>
+
+{% endblock %}

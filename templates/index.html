@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h2>Welcome to your current portfolio.</h2>
+    <h5>Happy Trading!</h5>
+    <p>Each user is given $10,000 USD to trade with!</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+
+        </thead>
+
+        {%for stock in rows%}
+            {% if stock['total_shares']>0 %}
+                <tr>
+                    <td> {{ stock['symbol'] }}</td>
+                    <td> {{ stock['total_shares'] }}</td>
+                    <td> {{ usd(stock["valueofstock"]) }}</td>
+                    <td> {{ usd(stock['valueofstock'] * stock['total_shares']) }} </td>
+                </tr>
+            {% endif %}
+        {%endfor%}
+        <tr>
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td>{{ usd(cash) }}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>TOTAL</strong></td>
+                <td></td>
+                <td></td>
+                <td>{{ usd(total) }}</td>
+                <td></td>
+            </tr>
+
+    </table>
+
+{% endblock %}
