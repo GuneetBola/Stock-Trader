@@ -52,7 +52,6 @@ def index():
     values={}
     cash=user[0]['cash']
     complete_total=cash
-    ##okay so i need to know the different amounts for each
     for stock in rows:
         price = lookup(stock['symbol'])['price']
         total = stock['total_shares'] * price
@@ -71,7 +70,6 @@ def portfolio():
     values={}
     cash=user[0]['cash']
     complete_total=cash
-    ##okay so i need to know the different amounts for each
     for stock in rows:
         price = lookup(stock['symbol'])['price']
         total = stock['total_shares'] * price
