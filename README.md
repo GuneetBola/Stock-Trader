@@ -1,1 +1,1 @@
-# Stock-Trader-CS50
+# Stock-Trader
